@@ -22,6 +22,14 @@ describe("Happy path", () => {
     fs.readFileSync.mockReturnValue('{"test":"123"}');
     expect(kvs("Remove", "test")).toBe("test is removed");
   });
+  it("Can Remove Value from store", () => {
+    fs.readFileSync.mockReturnValue('{"test":"123"}');
+    try {
+      expect(kvs("Remove", "test2")).toBe("test is removed");
+    } catch (e) {
+      expect(e).toEqual("Key not found");
+    }
+  });
 });
 
 describe("Validation", () => {

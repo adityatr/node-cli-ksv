@@ -16,9 +16,11 @@ class Store {
   }
 
   remove(key) {
-    delete this.store[key];
-    this.syncFile();
-    return `${key} is removed`;
+    if (this.get(key)) {
+      delete this.store[key];
+      this.syncFile();
+      return `${key} is removed`;
+    }
   }
 
   add(key, value) {
