@@ -5,7 +5,6 @@ const storeJsonFile = path.join(__dirname, "./storeJsonFile.json");
 class Store {
   constructor() {
     const result = fs.readFileSync(storeJsonFile);
-    console.log("RESS", result);
     this.store = JSON.parse(result) || {};
   }
 
